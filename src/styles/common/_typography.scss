@@ -1,0 +1,28 @@
+//*****************************************************************************************
+// Main typography styles. If anything is specific to a component, put it in that SCSS file!
+//
+// - Use the font-size mixin
+//******************************************************************************************/
+
+body {
+	@include font-size(1);
+	color: $grey-color;
+	font-family: $font-body;
+	line-height: 1.6;
+}
+
+.h1 {
+	@include font-size(4.4);
+	font-family: $font-title;
+	margin-bottom: 25px;
+}
+
+.h2 {
+	@include font-size(3);
+	font-family: $font-title;
+	margin-bottom: 20px;
+}
+
+a{
+	color: $primary-color;
+}

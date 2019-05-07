@@ -1,0 +1,19 @@
+//breakpoints
+$breakpoint-xs: 0;  //only used in bs3
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+
+//grid gutters
+$gutter-width-xs:         10px;
+$gutter-width-sm:         20px;
+$gutter-width-md:         20px;
+$gutter-width-lg:         20px;
+$gutter-width-xl:         200px;
+
+//only used in Bs4
+$container-max-width-sm: 540px;
+$container-max-width-md: 720px;
+$container-max-width-lg: 960px;
+$container-max-width-xl: 1920px;

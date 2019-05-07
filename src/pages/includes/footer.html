@@ -1,0 +1,16 @@
+			</main>
+
+			<footer>
+
+			</footer>
+		</div>
+
+		<script src="https://js.stripe.com/v3/"></script>
+
+		{% if ('' | getGlobal).context.task === 'build' %}
+			<script src="/scripts/main.min.js"></script>
+		{% else %}
+			<script src="/scripts/main.js"></script>
+		{% endif %}
+	</body>
+</html>

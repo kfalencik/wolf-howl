@@ -1,0 +1,87 @@
+//*************************************
+//   The navigation for the site
+//   Includes primary nav and submenus
+//*************************************/
+
+.nav {
+	text-transform: uppercase;
+	position: relative;
+	height: 145px;
+	overflow: hidden;
+
+	$root: &;
+
+	.row{
+		height: 145px;
+		align-items: center;
+	}
+
+	a{
+		text-transform: uppercase;
+		color: #000;
+		font-weight: bold;
+	}
+
+	&__logo {
+		font-family: $font-title;
+		font-size: 40px;
+		margin-bottom: 0;
+	}
+
+	&__menu-side-tirgger{
+		float: left;
+
+		a{
+			height: 145px;
+			padding: 0 20px;
+			line-height: 145px;
+			font-size: 22px;
+		}
+	}
+
+	&__menu-featured{
+
+		ul{
+			overflow: hidden;
+
+			li{
+				float: left;
+
+				a{
+					position: relative;
+					display: inline-block;
+					height: 145px;
+					padding: 0 35px;
+					line-height: 145px;
+
+					&:hover{
+						color: #fff;
+						background: $tertiary-color;
+					}
+				}
+			}
+		}
+	}
+
+	&__menu-user{
+		text-align: right;
+		overflow: hidden;
+
+		&-item{
+			float: left;
+
+			a{
+				position: relative;
+				display: inline-block;
+				height: 145px;
+				padding: 0 35px;
+				line-height: 145px;
+
+				&:hover{
+					color: #fff;
+					background: $tertiary-color;
+				}
+			}
+		}
+	}
+}

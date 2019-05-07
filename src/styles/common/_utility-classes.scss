@@ -1,0 +1,67 @@
+//**********************************************
+// UTILITY CLASSES
+// Please do not change any of these utility classes
+// as they should be constant between builds
+// However please feel free to extend this file and
+// add your own.
+//**********************************************/
+
+// Display
+.u-hidden {
+	display: none;
+}
+
+.u-sr-only {
+	height: 1px !important;
+	left: -10000px !important;
+	overflow: hidden !important;
+	position: absolute !important;
+	top: auto !important;
+	width: 1px !important;
+}
+
+.u-float-right {
+	float: right;
+}
+
+.u-float-left {
+	float: left;
+}
+
+// Typography
+.u-caps {
+	text-transform: uppercase;
+}
+
+.u-text-right {
+	text-align: right;
+}
+
+.u-text-center {
+	text-align: center;
+}
+
+// Colours
+.u-primary {
+	color: $primary-color;
+}
+
+.u-secondary {
+	color: $secondary-color;
+}
+
+.u-tertiary {
+	color: $tertiary-color;
+}
+
+.u-bg-primary {
+	background-color: $primary-color;
+}
+
+.u-bg-secondary {
+	background-color: $secondary-color;
+}
+
+.u-bg-tertiary {
+	background-color: $tertiary-color;
+}
