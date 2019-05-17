@@ -36,6 +36,9 @@ export default {
     ProductsGrid,
     Product
   },
+  mounted: function(){
+    this.$store.dispatch('getProducts');
+  },
   computed: {
     currentView () {
       return this.$store.state.currentView

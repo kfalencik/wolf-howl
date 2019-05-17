@@ -10,8 +10,8 @@
 
 						<div class="product-view__item-details">
 							<h2 class="h2">{{product.title}}</h2>
-							<div class="product-view__item-price">£{{selectedProduct.price}}</div>
 							<div class="product-view__item-description">{{product.description}}</div>
+              <div class="product-view__item-price">£{{selectedProduct.price}}</div>
 							<div class="product-view__item-sizes">
 								<div v-for="(size, sizeIndex) in product.variants" :key="size.id" :class="{'product-view__item-sizes-item': true, 'product-view__item-sizes-item--selected': selectedProduct && size.id == selectedProduct.id, 'product-view__item-sizes-item--disabled': !size.available}"><button @click="selectSize(sizeIndex)">{{size.title}}</button></div>
 							</div>
@@ -109,7 +109,7 @@
 	&__item-price{
 		color: $primary-color;
 		font-size: 28px;
-		margin: 40px 0;
+		margin: 20px 0 0;
 	}
 
 	&__item-sizes{
