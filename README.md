@@ -1,7 +1,22 @@
-# gulp-boilerplate
+# wolfhowl
 
-This is a Gulp-powered boilerplate project developed by [Realise](https://www.realise.com/)
+> Quality Tratidional Tattoo Apparel
 
-For full instructions on how to use this boilerplate please see the wiki at [https://github.com/realise-labs/gulp-boilerplate/wiki](https://github.com/realise-labs/gulp-boilerplate/wiki)
+## Build Setup
 
-You should modify this file (README.md) with instructions specific to your project.
+``` bash
+# install dependencies
+$ npm install
+
+# serve with hot reload at localhost:3000
+$ npm run dev
+
+# build for production and launch server
+$ npm run build
+$ npm start
+
+# generate static project
+$ npm run generate
+```
+
+For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
