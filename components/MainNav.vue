@@ -2,16 +2,16 @@
   <header>
     <div class="container">
       <div class="row nav">
-        <div class="nav__logo" @click="activateView('index')">
-          <h1>Wolf Howl</h1>
+        <div class="nav__logo">
+          <a @click.prevent="activateView('index')"><h1>Wolf Howl</h1></a>
         </div>
         <div class="nav__menu">
           <nav class="nav__menu-main">
             <ul>
-              <li><span @click="activateView('new')">New</span></li>
-              <li><span @click="activateView('man')">Man</span></li>
-              <li><span @click="activateView('woman')">Woman</span></li>
-              <li><span @click="showBag()"><i class="fas fa-shopping-bag"></i> {{bag.length}}</span></li>
+              <li><a @click.prevent="activateView('new')">New</a></li>
+              <li><a @click.prevent="activateView('man')">Man</a></li>
+              <li><a @click.prevent="activateView('woman')">Woman</a></li>
+              <li><a @click.prevent="showBag()"><i class="fas fa-shopping-bag"></i> {{bag.length}}</a></li>
             </ul>
           </nav>
         </div>
@@ -60,7 +60,7 @@
 		align-items: center;
 	}
 
-	span{
+	a{
 		text-transform: uppercase;
 		color: #000;
 		font-weight: bold;
@@ -84,13 +84,12 @@
 			li{
 				float: left;
 
-				span{
+				a{
 					position: relative;
 					display: inline-block;
 					height: 80px;
 					padding: 0 35px;
           line-height: 80px;
-          cursor: pointer;
           font-size: 14px;
 
 					&:hover{
