@@ -1,7 +1,10 @@
 <template>
   <div class="container products-grid">
     <div class="row">
-      <div class="products-grid__item col-lg-3 col-md-6 col" v-for="product in products" :key="product.id">
+      <div class="col-sm-12"><h2 class="h2">New Arivals</h2></div>
+    </div>
+    <div class="row">
+      <div class="products-grid__item col-lg-4 col-md-6 col-sm-12" v-for="product in products" :key="product.id">
         <div class="products-grid__item-image" @click="selectProduct(product.id)"><img :src="product.images[0].src" /></div>
         <div class="products-grid__item-title">{{ product.title }} <span class="products-grid__item-price">£{{product.variants[0].price}}</span></div>
       </div>
@@ -39,6 +42,7 @@
 
     &__item{
       cursor: pointer;
+      margin-bottom: 50px;
     }
 
     &__item-image{
