@@ -48,6 +48,7 @@
 
 <style lang="scss" scoped>
 .product-view{
+	padding: 50px 0;
 
 	&__item{
 		overflow: hidden;

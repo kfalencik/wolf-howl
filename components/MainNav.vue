@@ -1,5 +1,5 @@
 <template>
-  <header>
+  <header class="nav">
     <div class="container">
       <div class="row nav">
         <div class="nav__logo">
@@ -51,7 +51,6 @@
     position: relative;
     overflow: hidden;
     background: #fff;
-    margin-bottom: 50px;
     padding: 0 40px;
 
 	$root: &;

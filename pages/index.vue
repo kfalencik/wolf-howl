@@ -9,6 +9,7 @@
 
       <div :key="2" v-else>
             <template v-if="currentView == 'index'">
+              <Hero />
               <ProductsGrid />
             </template>
 
@@ -28,13 +29,14 @@
 import MainNav from '~/components/MainNav.vue';
 import ProductsGrid from '~/components/ProductsGrid.vue';
 import Product from '~/components/Product.vue';
-
+import Hero from '~/components/Hero.vue';
 
 export default {
   components: {
     MainNav,
     ProductsGrid,
-    Product
+    Product,
+    Hero
   },
   mounted: function(){
     this.$store.dispatch('getProducts');
