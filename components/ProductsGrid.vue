@@ -1,8 +1,5 @@
 <template>
-  <div class="container products-grid">
-    <div class="row">
-      <div class="col-sm-12"><h2 class="h2">New Arivals</h2></div>
-    </div>
+  <div class="container products-grid" v-if="products">
     <div class="row">
       <div class="products-grid__item col-lg-4 col-md-6 col-sm-12" v-for="product in products" :key="product.id">
         <div class="products-grid__item-image"><nuxt-link :to="{ name: 'products-id', params: { id: product.handle }}"><img :src="product.images[0].src" /></nuxt-link></div>
@@ -16,14 +13,29 @@
   export default {
     data: function(){
       return{
+        products: false
       }
     },
+    props: ['collection'],
     mounted: function(){
       this.$store.dispatch('getProducts');
+      this.$store.dispatch('getCollections');
     },
     computed: {
-      products () {
-        return this.$store.state.products
+      collections () {
+        return this.$store.state.collections
+      }
+    },
+    watch: {
+      collections: function(){
+        const self = this;
+        if(self.collection){
+          self.collections.forEach(function(collection) {
+            if(collection.handle == self.collection) {
+              self.products = collection.products;
+            }
+          });
+        }
       }
     },
     methods: {
@@ -37,7 +49,7 @@
 
 <style lang="scss" scoped>
   .products-grid{
-    padding-top: 50px;
+    padding-top: 25px;
     padding-bottom: 50px;
 
     &__item{
