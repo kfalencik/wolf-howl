@@ -3,14 +3,14 @@
     <div class="container">
       <div class="row nav">
         <div class="nav__logo">
-          <a @click.prevent="activateView('index')"><h1>Wolf Howl</h1></a>
+          <nuxt-link to="/"><h1>Wolf Howl</h1></nuxt-link>
         </div>
         <div class="nav__menu">
           <nav class="nav__menu-main">
             <ul>
-              <li><a @click.prevent="activateView('new')">New</a></li>
-              <li><a @click.prevent="activateView('man')">Man</a></li>
-              <li><a @click.prevent="activateView('woman')">Woman</a></li>
+              <li><nuxt-link to="/new">New</nuxt-link></li>
+              <li><nuxt-link to="/men">Men</nuxt-link></li>
+              <li><nuxt-link to="/women">Women</nuxt-link></li>
               <li><a @click.prevent="showBag()"><i class="fas fa-shopping-bag"></i> {{bag.length}}</a></li>
             </ul>
           </nav>
@@ -30,16 +30,6 @@
     computed: {
       bag () {
         return this.$store.state.bag
-      }
-    },
-    methods: {
-      activateView: function(view){
-        if(view == 'new' || view == 'man' || view == 'woman'){
-          let productFilter = view;
-          this.$store.commit('setValue', ['productFilter', productFilter]);
-          view = 'grid';
-        }
-        this.$store.commit('setView', view);
       }
     }
   }

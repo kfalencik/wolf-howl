@@ -73,6 +73,15 @@ export default {
     ]
   },
 
+  router: {
+    extendRoutes(routes, resolve) {
+      // Automatically map all route params to component props:
+      for (const route of routes) {
+        route.props = /:/.test(route.path)
+      }
+    }
+  },
+
   /*
   ** Build configuration
   */
