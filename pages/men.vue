@@ -1,7 +1,7 @@
 <template>
   <div>
     <PageTitle title="Men" />
-    <ProductsGrid collection="t-shirts-men" />
+    <ProductsGrid collection="men" />
   </div>
 </template>
 
