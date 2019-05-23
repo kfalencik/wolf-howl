@@ -2,7 +2,25 @@ export const state = () => ({
   products: null,
   collections: null,
   productFilter: null,
-  bag: []
+  bagToggle: false,
+  bag: [
+    {
+      id: 'fwefwefergu349g834n49g34',
+      variant: 'owefn9348gn934g9384f92n',
+      quantity: 2,
+      size: 'Small',
+      title: 'Wolf Howl - Mans T-Shirt',
+      price: '59.99'
+    },
+    {
+      id: 'fwefwefergu349g834n49g34',
+      variant: 'owefn9348gn934g9384f92n',
+      quantity: 4,
+      size: 'Extra Large',
+      title: 'Panther Hunt - Mans T-Shirt',
+      price: '59.99'
+    }
+  ]
 })
 
 export const mutations = {

@@ -1,4 +1,5 @@
 <template>
+  <div class="page-top">
   <header class="nav">
     <div class="container">
       <div class="row nav">
@@ -11,25 +12,41 @@
               <li><nuxt-link to="/new">New</nuxt-link></li>
               <li><nuxt-link to="/men">Men</nuxt-link></li>
               <li><nuxt-link to="/women">Women</nuxt-link></li>
-              <li><a @click.prevent="showBag()"><i class="fas fa-shopping-bag"></i> {{bag.length}}</a></li>
+              <li><a @click.prevent.stop="showBag()"><i class="fas fa-shopping-bag"></i> {{bag.length}}</a></li>
             </ul>
           </nav>
         </div>
       </div>
     </div>
   </header>
+
+  <Bag />
+  </div>
 </template>
 
 <script>
+  import Bag from '~/components/Bag.vue';
+
   export default {
     data: function(){
       return{
 
       }
     },
+    components: {
+      Bag
+    },
     computed: {
       bag () {
         return this.$store.state.bag
+      },
+      bagToggle () {
+        return this.$store.state.bagToggle
+      }
+    },
+    methods: {
+      showBag: function(){
+        this.$store.commit('setValue', ['bagToggle', !this.bagToggle]);
       }
     }
   }

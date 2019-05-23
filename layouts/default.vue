@@ -2,15 +2,18 @@
   <main>
     <mainNav />
     <nuxt />
+    <Footer />
   </main>
 </template>
 
 <script>
 import MainNav from '~/components/MainNav.vue';
+import Footer from '~/components/Footer.vue';
 
 export default{
   components: {
-    MainNav
+    MainNav,
+    Footer
   }
 }
 </script>
