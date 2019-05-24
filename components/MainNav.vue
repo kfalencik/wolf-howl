@@ -3,10 +3,10 @@
   <header class="nav">
     <div class="container">
       <div class="row nav">
-        <div class="nav__logo">
-          <nuxt-link to="/"><h1>Wolf Howl</h1></nuxt-link>
+        <div class="nav__logo col-md-6">
+          <nuxt-link to="/"><img height="50" src="~/assets/img/logo.png" alt="Logo" /></nuxt-link>
         </div>
-        <div class="nav__menu">
+        <div class="nav__menu col-md-6">
           <nav class="nav__menu-main">
             <ul>
               <li><nuxt-link to="/new">New</nuxt-link></li>
@@ -87,17 +87,20 @@
 		height: 80px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    margin-right: 100px;
-	}
+
+    img{
+      vertical-align: middle;
+      margin-right: 10px;
+    }
+  }
 
 	&__menu-main{
+    text-align: right;
 
 		ul{
-			overflow: hidden;
 
 			li{
-				float: left;
+				display: inline-block;
 
 				a{
 					position: relative;

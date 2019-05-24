@@ -7,6 +7,7 @@
         </svg>
 
         <div class="hero__title">
+            <img height="200" src="~/assets/img/logo.png" alt="Wolf Howl" />
             <h1 class="h1">Wolf Howl</h1>
             <p>Quality traditional tattoo apparel that lasts</p>
         </div>
@@ -39,8 +40,13 @@
             transform: translate(-50%, -50%);
             border: 25px solid #000;
 
+            img{
+              position: absolute;
+              top: -135px;
+            }
+
             h1{
-                margin-bottom: 0;
+              margin-bottom: 0;
             }
         }
     }
