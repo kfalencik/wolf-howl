@@ -4,7 +4,10 @@
     <div class="container">
       <div class="row nav">
         <div class="nav__logo col-md-6">
-          <nuxt-link to="/"><img height="50" src="~/assets/img/logo.png" alt="Logo" /></nuxt-link>
+          <nuxt-link to="/">
+            <!-- <img height="50" src="~/assets/img/logo.png" alt="Logo" /> -->
+            Wolf howl
+          </nuxt-link>
         </div>
         <div class="nav__menu col-md-6">
           <nav class="nav__menu-main">
