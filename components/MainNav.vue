@@ -53,14 +53,23 @@
 </script>
 
 <style lang="scss" scoped>
-  .nav {
-    text-transform: uppercase;
-    position: relative;
-    overflow: hidden;
-    background: #fff;
-    padding: 0 40px;
+.nav {
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+  background: #fff;
+  padding: 0 40px;
 
-	$root: &;
+  $root: &;
+
+  ul{
+    padding: 0;
+
+    li{
+      margin: 0;
+      list-style: none;
+    }
+  }
 
 	.row{
 		align-items: center;
