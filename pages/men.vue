@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="page-wrapper">
     <PageTitle title="Men" />
     <ProductsGrid collection="men" />
   </div>

@@ -15,7 +15,7 @@
       </div>
 
       <div class="bag__buttons">
-        <button class="btn btn--primary">Go to secure checkout</button>
+        <nuxt-link to="/checkout" class="btn btn--primary">Go to secure checkout</nuxt-link>
       </div>
     </div>
   </div>

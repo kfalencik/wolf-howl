@@ -1,17 +1,17 @@
 <template>
   <div class="page-wrapper">
-    <PageTitle title="Women" />
-    <ProductsGrid collection="women" />
+    <PageTitle title="Checkout" />
+    <Checkout />
   </div>
 </template>
 
 <script>
-import ProductsGrid from '~/components/ProductsGrid.vue';
+import Checkout from '~/components/Checkout.vue';
 import PageTitle from '~/components/PageTitle.vue';
 
 export default {
   components: {
-    ProductsGrid,
+    Checkout,
     PageTitle
   },
   mounted: function(){
