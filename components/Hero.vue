@@ -7,7 +7,7 @@
         </svg>
 
         <div class="hero__title">
-            <img height="200" src="~/assets/img/logo.svg" alt="Wolf Howl" />
+            <img height="200" src="~/assets/img/logo.png" alt="Wolf Howl" />
             <h1 class="h1">Wolf Howl</h1>
             <p>Quality traditional tattoo apparel that lasts</p>
         </div>
