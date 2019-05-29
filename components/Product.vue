@@ -14,7 +14,7 @@
                 <h2 itemprop="name" class="h2">{{product.title}}</h2>
                 <div itemprop="description" class="product-view__item-description">{{product.description}}</div>
 								<meta itemprop="priceCurrency" content="GBP" />
-                <div class="product-view__item-price" itemprop="price">£{{selectedProduct.price}}</div>
+                <div class="product-view__item-price">£<span itemprop="price">{{selectedProduct.price}}</span></div>
                 <div class="product-view__item-sizes">
                   <div v-for="(size, sizeIndex) in product.variants" :key="size.id" :class="{'product-view__item-sizes-item': true, 'product-view__item-sizes-item--selected': selectedProduct && size.id == selectedProduct.id, 'product-view__item-sizes-item--disabled': !size.available}"><button @click="selectSize(sizeIndex)">{{size.title}}</button></div>
                 </div>
@@ -28,6 +28,42 @@
 				</div>
 			</div>
 		</div>
+
+		<script type="application/ld+json">
+		{
+			"@context": "https://schema.org/",
+			"@type": "Product",
+			"name": "Panther Hunt - Men's Tshirt",
+			"image": "wefw",
+			"description": "A tshirt description",
+			"brand": "Wolf Howl",
+			"offers": {
+				"@type": "Offer",
+				"url": "url",
+				"priceCurrency": "GBP",
+				"price": "59.99",
+				"availability": "https://schema.org/InStock",
+				"itemCondition": "https://schema.org/NewCondition"
+			},
+			"aggregateRating": {
+				"@type": "AggregateRating",
+				"ratingValue": "5",
+				"ratingCount": "1",
+				"reviewCount": "1"
+			},
+			"review": {
+				"@type": "Review",
+				"name": "Yes!",
+				"reviewBody": "Great quality, amazing fit. Definitely my favourite tshirt these days!",
+				"reviewRating": {
+					"@type": "Rating",
+					"ratingValue": "5"
+				},
+				"datePublished": "2019-04-17",
+				"author": {"@type": "Person", "name": "Andy"}
+			}
+		}
+		</script>
   </div>
 </template>
 
