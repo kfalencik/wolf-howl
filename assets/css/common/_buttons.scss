@@ -11,7 +11,7 @@
 	font-weight: bold;
 	line-height: 1;
 	opacity: 0.75;
-	transition: all .5s ease;
+  transition: all .5s ease;
 
 	&:hover{
 		opacity: 1;
@@ -29,4 +29,8 @@
 		color: $grey-color;
 		text-transform: none;
 	}
+
+  &--primary{
+    background-color: $primary-color;
+  }
 }

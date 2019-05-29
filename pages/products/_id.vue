@@ -1,34 +1,32 @@
 <template>
   <div class="page-wrapper">
-    <Hero />
-    <PageTitle title="New Arrivals" />
-    <ProductsGrid collection="new" />
+    <Product :productid="id" />
   </div>
 </template>
 
 <script>
-import ProductsGrid from '~/components/ProductsGrid.vue';
-import Hero from '~/components/Hero.vue';
-import PageTitle from '~/components/PageTitle.vue';
+import Product from '~/components/Product.vue';
 
 export default {
   components: {
-    ProductsGrid,
-    Hero,
-    PageTitle
+    Product
+  },
+  props: ['id'],
+  data: function(){
+    return{
+    }
   },
   mounted: function(){
     this.$store.dispatch('getProducts');
+    console.log(this.id);
   }
 }
 </script>
-<<<<<<< HEAD
 
 <style lang="scss" scoped>
   main{
     background: linear-gradient($secondary-color 0%,  #fff 40%,  #fff 100%);
     min-height: calc(100vh - 145px);
-    padding-top: 80px;
 
     .loading{
       position: fixed;
@@ -44,5 +42,3 @@ export default {
     }
   }
 </style>
-=======
->>>>>>> aebdca83f8e75d76aae51fc07e955d86edef1043

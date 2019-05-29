@@ -1,45 +1,55 @@
 <template>
+  <div class="page-top">
   <header class="nav">
     <div class="container">
-      <div class="row">
-        <div class="nav__logo">
-          <a @click.prevent="activateView('index')"><h1>Wolf Howl</h1></a>
+      <div class="row nav">
+        <div class="nav__logo col-md-6">
+          <nuxt-link to="/">
+            <!-- <img height="50" src="~/assets/img/logo.png" alt="Logo" /> -->
+            Wolf howl
+          </nuxt-link>
         </div>
-        <div class="nav__menu">
+        <div class="nav__menu col-md-6">
           <nav class="nav__menu-main">
             <ul>
-              <li><a @click.prevent="activateView('new')">New</a></li>
-              <li><a @click.prevent="activateView('man')">Man</a></li>
-              <li><a @click.prevent="activateView('woman')">Woman</a></li>
-              <li><a @click.prevent="showBag()"><i class="fas fa-shopping-bag"></i> {{bag.length}}</a></li>
+              <li><nuxt-link to="/new">New</nuxt-link></li>
+              <li><nuxt-link to="/men">Men</nuxt-link></li>
+              <li><nuxt-link to="/women">Women</nuxt-link></li>
+              <li><a @click.prevent.stop="showBag()"><i class="fas fa-shopping-bag"></i> {{bag.length}}</a></li>
             </ul>
           </nav>
         </div>
       </div>
     </div>
   </header>
+
+  <Bag />
+  </div>
 </template>
 
 <script>
+  import Bag from '~/components/Bag.vue';
+
   export default {
     data: function(){
       return{
 
       }
     },
+    components: {
+      Bag
+    },
     computed: {
       bag () {
         return this.$store.state.bag
+      },
+      bagToggle () {
+        return this.$store.state.bagToggle
       }
     },
     methods: {
-      activateView: function(view){
-        if(view == 'new' || view == 'man' || view == 'woman'){
-          let productFilter = view;
-          this.$store.commit('setValue', ['productFilter', productFilter]);
-          view = 'grid';
-        }
-        this.$store.commit('setView', view);
+      showBag: function(){
+        this.$store.commit('setValue', ['bagToggle', !this.bagToggle]);
       }
     }
   }
@@ -48,6 +58,7 @@
 <style lang="scss" scoped>
 .nav {
   text-transform: uppercase;
+<<<<<<< HEAD
   position: sticky;
   overflow: hidden;
   background: #fff;
@@ -56,8 +67,22 @@
   top: 0;
   z-index: 50;
   box-shadow: 0 0 5px rgba(0,0,0, .45);
+=======
+  position: relative;
+  overflow: hidden;
+  background: #fff;
+>>>>>>> aebdca83f8e75d76aae51fc07e955d86edef1043
 
-	$root: &;
+  $root: &;
+
+  ul{
+    padding: 0;
+
+    li{
+      margin: 0;
+      list-style: none;
+    }
+  }
 
 	.row{
 		align-items: center;
@@ -75,17 +100,20 @@
 		height: 80px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    margin-right: 100px;
-	}
+
+    img{
+      vertical-align: middle;
+      margin-right: 10px;
+    }
+  }
 
 	&__menu-main{
+    text-align: right;
 
 		ul{
-			overflow: hidden;
 
 			li{
-				float: left;
+				display: inline-block;
 
 				a{
 					position: relative;

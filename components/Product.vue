@@ -25,6 +25,32 @@
 							</div>
 						</div>
 					</div>
+  <div class="product-view container">
+    <div class="row">
+			<div class="col">
+				<div class="product-view__wrapper">
+
+          <transition-group name="fade">
+            <div :key="'product'" v-if="product" class="product-view__item" itemscope itemtype="http://schema.org/Product">
+              <div class="product-view__item-image">
+                <img item-prop="image" :src="product.images[0].src" :alt="product.title">
+              </div>
+
+              <div class="product-view__item-details">
+                <h2 itemprop="name" class="h2">{{product.title}}</h2>
+                <div itemprop="description" class="product-view__item-description">{{product.description}}</div>
+								<meta itemprop="priceCurrency" content="GBP" />
+                <div class="product-view__item-price">£<span itemprop="price">{{selectedProduct.price}}</span></div>
+                <div class="product-view__item-sizes">
+                  <div v-for="(size, sizeIndex) in product.variants" :key="size.id" :class="{'product-view__item-sizes-item': true, 'product-view__item-sizes-item--selected': selectedProduct && size.id == selectedProduct.id, 'product-view__item-sizes-item--disabled': !size.available}"><button @click="selectSize(sizeIndex)">{{size.title}}</button></div>
+                </div>
+                <div class="product-view__item-add"><button :class="{'btn btn--primary': true, 'btn--disabled': selectedProduct == null }">Add +</button></div>
+              </div>
+            </div>
+
+            <Loading key="'loading'" v-else />
+          </transition-group>
+
 				</div>
 			</div>
 		</div>
@@ -32,22 +58,39 @@
 </template>
 
 <script>
+  import Loading from '~/components/Loading.vue';
+
   export default {
     data: function(){
       return{
+        product: false,
+        selectedProduct: false
       }
     },
+    components: {
+      Loading
+    },
+		props: ['productid'],
     computed: {
-      product () {
-        return this.$store.state.product
-      },
-      selectedProduct () {
-        return this.$store.state.selectedProduct
+      products: function() {
+        return this.$store.state.products;
+      }
+    },
+    watch: {
+      products: function(){
+        const self = this;
+
+        self.products.forEach(function(product) {
+          if(product.handle == self.productid) {
+            self.product = product;
+            self.selectedProduct = product.variants[0];
+          }
+        });
       }
     },
     methods: {
       selectSize(size){
-        this.$store.commit('setSize', size);
+        this.selectedProduct = this.product.variants[size];
       }
     }
   }
@@ -55,6 +98,11 @@
 
 <style lang="scss" scoped>
 .product-view{
+<<<<<<< HEAD
+=======
+  padding-top: 50px;
+  padding-bottom: 50px;
+>>>>>>> aebdca83f8e75d76aae51fc07e955d86edef1043
 
 	&__item{
 		overflow: hidden;

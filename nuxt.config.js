@@ -3,6 +3,12 @@ import pkg from './package'
 export default {
   mode: 'universal',
 
+  generate: {
+    routes: [
+      '/products/panther-hunt'
+    ]
+  },
+
   /*
   ** Headers of the page
   */
@@ -71,6 +77,15 @@ export default {
         'assets/css/common/_typography.scss',
         'assets/css/common/_utility-classes.scss'
     ]
+  },
+
+  router: {
+    extendRoutes(routes, resolve) {
+      // Automatically map all route params to component props:
+      for (const route of routes) {
+        route.props = /:/.test(route.path)
+      }
+    }
   },
 
   /*

@@ -1,5 +1,28 @@
 <template>
-  <div>
+  <main>
+    <mainNav />
     <nuxt />
-  </div>
+    <Footer />
+  </main>
 </template>
+
+<script>
+import MainNav from '~/components/MainNav.vue';
+import Footer from '~/components/Footer.vue';
+
+export default{
+  components: {
+    MainNav,
+    Footer
+  }
+}
+</script>
+
+<style lang="scss" scoped>
+  main{
+    background: linear-gradient($secondary-color 0%,  #fff 40%,  #fff 100%);
+  }
+  .page-wrapper{
+    min-height: calc(100vh - 405px);
+  }
+</style>
