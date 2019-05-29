@@ -3,6 +3,12 @@ import pkg from './package'
 export default {
   mode: 'universal',
 
+  generate: {
+    routes: [
+      '/products/panther-hunt'
+    ]
+  },
+
   /*
   ** Headers of the page
   */
