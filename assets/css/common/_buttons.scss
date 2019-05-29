@@ -20,15 +20,7 @@
 	&--disabled{
 		cursor: default;
 		opacity: 0.3 !important;
-	}
-
-	&--secondary{
-		padding: 0;
-		margin-bottom: 20px;
-		background: none;
-		color: $grey-color;
-		text-transform: none;
-	}
+  }
 
   &--primary{
     background-color: $primary-color;

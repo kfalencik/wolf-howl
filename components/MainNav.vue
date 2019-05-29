@@ -58,20 +58,9 @@
 <style lang="scss" scoped>
 .nav {
   text-transform: uppercase;
-<<<<<<< HEAD
-  position: sticky;
-  overflow: hidden;
-  background: #fff;
-  padding: 0 40px;
-  left: 0;
-  top: 0;
-  z-index: 50;
-  box-shadow: 0 0 5px rgba(0,0,0, .45);
-=======
   position: relative;
   overflow: hidden;
   background: #fff;
->>>>>>> aebdca83f8e75d76aae51fc07e955d86edef1043
 
   $root: &;
 

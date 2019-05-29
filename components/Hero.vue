@@ -20,7 +20,6 @@
         overflow: hidden;
         margin-bottom: 50px;
         position: relative;
-        margin-top: -80px;
 
         svg{
             margin-top: -100px;
@@ -36,7 +35,7 @@
             align-items: center;
             flex-flow: column nowrap;
             position: absolute;
-            top: calc(50% - 40px);
+            top: calc(50% - 80px);
             left: 50%;
             transform: translate(-50%, -50%);
             border: 25px solid #000;

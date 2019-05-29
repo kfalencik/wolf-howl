@@ -1,15 +1,4 @@
 <template>
-  <div class="container products-grid">
-    <div class="row">
-      <div class="col-sm-12">
-        <button class="btn btn--secondary" @click.prevent="changeView('index')"><i class="fas fa-undo-alt"></i> Go back</button>
-      </div>
-      <div class="col-sm-12"><h2 class="h2">New Arivals</h2></div>
-    </div>
-    <div class="row">
-      <div class="products-grid__item col-lg-4 col-md-6 col-sm-12" v-for="product in products" :key="product.id">
-        <div class="products-grid__item-image" @click="selectProduct(product.id)"><img :src="product.images[0].src" /></div>
-        <div class="products-grid__item-title">{{ product.title }} <span class="products-grid__item-price">£{{product.variants[0].price}}</span></div>
   <transition-group name="fade">
     <div :key="'products'" class="container products-grid" v-if="products">
       <div class="row">
@@ -62,9 +51,6 @@ import Loading from '~/components/Loading.vue';
       selectProduct: function(product) {
         this.$store.commit('setProduct', product);
         this.$store.commit('setView', 'product');
-      },
-      changeView: function(view){
-        this.$store.commit('setView', view);
       }
     }
   }
@@ -72,11 +58,8 @@ import Loading from '~/components/Loading.vue';
 
 <style lang="scss" scoped>
   .products-grid{
-<<<<<<< HEAD
-=======
     padding-top: 25px;
     padding-bottom: 50px;
->>>>>>> aebdca83f8e75d76aae51fc07e955d86edef1043
 
     &__item{
       cursor: pointer;
