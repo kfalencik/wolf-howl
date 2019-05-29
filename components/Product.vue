@@ -5,15 +5,16 @@
 				<div class="product-view__wrapper">
 
           <transition-group name="fade">
-            <div :key="'product'" v-if="product" class="product-view__item">
+            <div :key="'product'" v-if="product" class="product-view__item" itemscope itemtype="http://schema.org/Product">
               <div class="product-view__item-image">
-                <img :src="product.images[0].src">
+                <img item-prop="image" :src="product.images[0].src" :alt="product.title">
               </div>
 
               <div class="product-view__item-details">
-                <h2 class="h2">{{product.title}}</h2>
-                <div class="product-view__item-description">{{product.description}}</div>
-                <div class="product-view__item-price">£{{selectedProduct.price}}</div>
+                <h2 itemprop="name" class="h2">{{product.title}}</h2>
+                <div itemprop="description" class="product-view__item-description">{{product.description}}</div>
+								<meta itemprop="priceCurrency" content="GBP" />
+                <div class="product-view__item-price" itemprop="price">£{{selectedProduct.price}}</div>
                 <div class="product-view__item-sizes">
                   <div v-for="(size, sizeIndex) in product.variants" :key="size.id" :class="{'product-view__item-sizes-item': true, 'product-view__item-sizes-item--selected': selectedProduct && size.id == selectedProduct.id, 'product-view__item-sizes-item--disabled': !size.available}"><button @click="selectSize(sizeIndex)">{{size.title}}</button></div>
                 </div>
