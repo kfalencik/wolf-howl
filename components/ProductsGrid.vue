@@ -1,6 +1,9 @@
 <template>
   <div class="container products-grid">
     <div class="row">
+      <div class="col-sm-12">
+        <button class="btn btn--secondary" @click.prevent="changeView('index')"><i class="fas fa-undo-alt"></i> Go back</button>
+      </div>
       <div class="col-sm-12"><h2 class="h2">New Arivals</h2></div>
     </div>
     <div class="row">
@@ -30,6 +33,9 @@
       selectProduct: function(product) {
         this.$store.commit('setProduct', product);
         this.$store.commit('setView', 'product');
+      },
+      changeView: function(view){
+        this.$store.commit('setView', view);
       }
     }
   }
@@ -37,8 +43,6 @@
 
 <style lang="scss" scoped>
   .products-grid{
-    padding-top: 50px;
-    padding-bottom: 50px;
 
     &__item{
       cursor: pointer;

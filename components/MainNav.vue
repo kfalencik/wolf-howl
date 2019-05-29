@@ -1,7 +1,7 @@
 <template>
   <header class="nav">
     <div class="container">
-      <div class="row nav">
+      <div class="row">
         <div class="nav__logo">
           <a @click.prevent="activateView('index')"><h1>Wolf Howl</h1></a>
         </div>
@@ -46,12 +46,16 @@
 </script>
 
 <style lang="scss" scoped>
-  .nav {
-    text-transform: uppercase;
-    position: relative;
-    overflow: hidden;
-    background: #fff;
-    padding: 0 40px;
+.nav {
+  text-transform: uppercase;
+  position: sticky;
+  overflow: hidden;
+  background: #fff;
+  padding: 0 40px;
+  left: 0;
+  top: 0;
+  z-index: 50;
+  box-shadow: 0 0 5px rgba(0,0,0, .45);
 
 	$root: &;
 

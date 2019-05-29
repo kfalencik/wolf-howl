@@ -1,27 +1,34 @@
 <template>
-  <div class="product-view container">
-    <div class="row">
-			<div class="col">
-				<div class="product-view__wrapper">
-					<div v-if="product" class="product-view__item">
-						<div class="product-view__item-image">
-							<img :src="product.images[0].src">
-						</div>
-
-						<div class="product-view__item-details">
-							<h2 class="h2">{{product.title}}</h2>
-							<div class="product-view__item-description">{{product.description}}</div>
-              <div class="product-view__item-price">£{{selectedProduct.price}}</div>
-							<div class="product-view__item-sizes">
-								<div v-for="(size, sizeIndex) in product.variants" :key="size.id" :class="{'product-view__item-sizes-item': true, 'product-view__item-sizes-item--selected': selectedProduct && size.id == selectedProduct.id, 'product-view__item-sizes-item--disabled': !size.available}"><button @click="selectSize(sizeIndex)">{{size.title}}</button></div>
+  <section class="product-view">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12">
+					<button class="btn btn--secondary" @click.prevent="changeView('index')"><i class="fas fa-undo-alt"></i> Go back</button>
+				</div>
+    	</div>
+			<div class="row">
+				<div class="col">
+					<div class="product-view__wrapper">
+						<div v-if="product" class="product-view__item">
+							<div class="product-view__item-image">
+								<img :src="product.images[0].src">
 							</div>
-							<div class="product-view__item-add"><button :class="{'btn btn--primary': true, 'btn--disabled': selectedProduct == null }">Add +</button></div>
+
+							<div class="product-view__item-details">
+								<h2 class="h2">{{product.title}}</h2>
+								<div class="product-view__item-description">{{product.description}}</div>
+								<div class="product-view__item-price">£{{selectedProduct.price}}</div>
+								<div class="product-view__item-sizes">
+									<div v-for="(size, sizeIndex) in product.variants" :key="size.id" :class="{'product-view__item-sizes-item': true, 'product-view__item-sizes-item--selected': selectedProduct && size.id == selectedProduct.id, 'product-view__item-sizes-item--disabled': !size.available}"><button @click="selectSize(sizeIndex)">{{size.title}}</button></div>
+								</div>
+								<div class="product-view__item-add"><button :class="{'btn btn--primary': true, 'btn--disabled': selectedProduct == null }">Add +</button></div>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -48,7 +55,6 @@
 
 <style lang="scss" scoped>
 .product-view{
-	padding: 50px 0;
 
 	&__item{
 		overflow: hidden;

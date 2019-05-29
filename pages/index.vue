@@ -1,28 +1,29 @@
 <template>
-  <main>
+  <div>
     <mainNav />
+    <main>
+      <transition-group name="fade">
+        <div :key="1" v-if="viewLoading">
+            <div class="loading"><img src="~/assets/img/loading.svg" /></div>
+        </div>
 
-    <transition-group name="fade">
-      <div :key="1" v-if="viewLoading">
-          <div class="loading"><img src="~/assets/img/loading.svg" /></div>
-      </div>
-
-      <div :key="2" v-else>
-            <template v-if="currentView == 'index'">
-              <Hero />
-              <ProductsGrid />
-            </template>
-
-            <template v-if="currentView == 'grid'">
+        <div :key="2" v-else>
+              <template v-if="currentView == 'index'">
+                <Hero />
                 <ProductsGrid />
-            </template>
+              </template>
 
-            <template v-if="currentView == 'product'">
-                <Product />
-            </template>
-      </div>
-    </transition-group>
-  </main>
+              <template v-if="currentView == 'grid'">
+                  <ProductsGrid />
+              </template>
+
+              <template v-if="currentView == 'product'">
+                  <Product />
+              </template>
+        </div>
+      </transition-group>
+    </main>
+  </div>
 </template>
 
 <script>
@@ -61,6 +62,7 @@ export default {
   main{
     background: linear-gradient($secondary-color 0%,  #fff 40%,  #fff 100%);
     min-height: calc(100vh - 145px);
+    padding-top: 80px;
 
     .loading{
       position: fixed;
