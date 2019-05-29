@@ -22,7 +22,6 @@ export default {
   }
 }
 </script>
-<<<<<<< HEAD
 
 <style lang="scss" scoped>
   main{
@@ -44,5 +43,3 @@ export default {
     }
   }
 </style>
-=======
->>>>>>> aebdca83f8e75d76aae51fc07e955d86edef1043
