@@ -61,7 +61,6 @@
   position: relative;
   overflow: hidden;
   background: #fff;
-  padding: 0 40px;
 
   $root: &;
 
