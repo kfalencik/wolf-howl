@@ -3,7 +3,7 @@
     <div :key="'products'" class="container products-grid" v-if="products">
       <div class="row">
         <div class="products-grid__item col-lg-4 col-md-6 col-sm-12" v-for="(product, index) in products" :key="product.id">
-          <div class="products-grid__item-image"><nuxt-link :to="{ name: 'products-id', params: { id: product.handle }}"><img :src="product.images[0].src" /></nuxt-link></div>
+          <div class="products-grid__item-image"><nuxt-link :title="product.title" :to="{ name: 'products-id', params: { id: product.handle }}"><img :src="product.images[0].src" :alt="product.title" /></nuxt-link></div>
           <div class="products-grid__item-title">{{ product.title }} <span class="products-grid__item-price">£{{product.variants[0].price}}</span></div>
         </div>
       </div>
