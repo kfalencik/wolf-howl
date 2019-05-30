@@ -38,7 +38,11 @@
     data: function(){
       return{
         product: false,
-        selectedProduct: false
+        selectedProduct: false,
+        structuredData: {
+          "@context": "http://schema.org/",
+          "@type": "Product"
+        }
       }
     },
     components: {
@@ -65,6 +69,13 @@
     methods: {
       selectSize(size){
         this.selectedProduct = this.product.variants[size];
+      }
+    },
+    head () {
+      return {
+        script: [
+          { type: 'application/ld+json', src: JSON.stringify(this.structuredData) }
+        ]
       }
     }
   }
