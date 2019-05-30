@@ -58,9 +58,12 @@
 <style lang="scss" scoped>
 .nav {
   text-transform: uppercase;
-  position: relative;
+  position: fixed;
   overflow: hidden;
   background: #fff;
+  top: 0;
+  z-index: 30;
+  width: 100%;
 
   $root: &;
 
