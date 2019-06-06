@@ -1,5 +1,6 @@
 <template>
     <div class="hero">
+        <video src="~/assets/video/shop.mp4" autoplay playsinline loop muted />
         <img src="https://images.pexels.com/photos/2351800/pexels-photo-2351800.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" />
 
         <div class="hero__title">
@@ -17,6 +18,24 @@
         margin-bottom: 50px;
         position: relative;
 
+        &::after{
+          content: '';
+          display: block;
+          position: absolute;
+          left: 0 ;
+          right: 0;
+          top: 0;
+          bottom: 0;
+          background: url(~assets/img/overlay.png) rgba(0,0,0,0.5);
+          z-index: 5;
+        }
+
+        video{
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+
         &__title{
             width: 500px;
             height: 250px;
@@ -29,6 +48,7 @@
             position: absolute;
             top: 50%;
             left: 50%;
+            z-index: 10;
             transform: translate(-50%, -50%);
             border: 25px solid #000;
 
