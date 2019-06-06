@@ -30,5 +30,9 @@ export default{
     @media (max-width: $breakpoint-md){
       padding-top: 160px;
     }
+
+    @media (max-height: 567px){
+      padding-top: 0;
+    }
   }
 </style>

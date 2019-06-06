@@ -17,9 +17,11 @@
         overflow: hidden;
         margin-bottom: 50px;
         position: relative;
+        min-height: 568px;
 
         @media (max-width: $breakpoint-md){
           height: calc(100vh - 160px);
+
         }
 
         &::after{

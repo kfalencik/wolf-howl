@@ -49,7 +49,7 @@
   export default {
     data: function(){
       return{
-        footer: true
+        footer: false
       }
     },
     mounted: function(){
@@ -61,10 +61,6 @@
       document.querySelector('footer').addEventListener('click', function(e){
         e.stopPropagation();
       });
-
-      setTimeout(function(){
-        self.footer = false;
-      }, 1000);
     },
     methods: {
       toggleFooter: function(){
@@ -85,6 +81,12 @@
     bottom: 0;
     z-index: 55;
 
+    @media (max-width: $breakpoint-md){
+      position: relative;
+      transform: translateY(0);
+      z-index: 5;
+    }
+
     &.active{
       transform: translateY(0);
     }
@@ -98,6 +100,16 @@
       text-align: center;
       height: 120px;
       cursor: pointer;
+
+      @media (max-width: $breakpoint-md){
+        position: relative;
+        top: auto;
+        right: auto;
+        height: auto;
+        width: 100%;
+        cursor: initial;
+        padding-bottom: 20px;
+      }
 
       img{
         width: 50px;
@@ -122,6 +134,10 @@
     .payment-methods{
       text-align: right;
 
+      @media (max-width: $breakpoint-md){
+        text-align: center;
+      }
+
       &__item{
         width: 100%;
         max-width: 40px;
@@ -131,6 +147,10 @@
 
     .copyright{
       margin-top: 35px;
+
+      @media (max-width: $breakpoint-md){
+        text-align: center;
+      }
     }
   }
 </style>

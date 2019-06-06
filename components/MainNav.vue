@@ -73,6 +73,10 @@
   width: 100%;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
 
+  @media (max-height: 567px){
+    position: relative;
+  }
+
   $root: &;
 
   ul{
