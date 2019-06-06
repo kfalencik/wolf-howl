@@ -1,20 +1,25 @@
 <template>
   <div class="product-view container">
-    <div class="row">
-			<div class="col">
-				<div class="product-view__wrapper">
-
-          <transition-group name="fade">
-            <div :key="'product'" v-if="product" class="product-view__item" itemscope itemtype="http://schema.org/Product">
-              <div class="product-view__item-image">
-                <img item-prop="image" :src="product.images[0].src" :alt="product.title">
-                <img item-prop="image" :src="product.images[1].src" :alt="product.title">
+    <div class="product-view__wrapper">
+      <transition-group name="fade">
+        <div :key="'product'" v-if="product" class="product-view__item " itemscope itemtype="http://schema.org/Product">
+          <div class="row">
+            <div class="col-sm-12 col-lg-6">
+              <div class="product-view__item-images">
+                <div class="product-view__item-images-item">
+                  <img item-prop="image" :src="product.images[0].src" :alt="product.title">
+                </div>
+                <div class="product-view__item-images-item">
+                  <img item-prop="image" :src="product.images[1].src" :alt="product.title">
+                </div>
               </div>
+            </div>
 
+            <div class="col-sm-12 col-lg-6">
               <div class="product-view__item-details">
                 <h2 itemprop="name" class="h2">{{product.title}}</h2>
                 <div itemprop="description" class="product-view__item-description">{{product.description}}</div>
-								<meta itemprop="priceCurrency" content="GBP" />
+                <meta itemprop="priceCurrency" content="GBP" />
                 <div class="product-view__item-price">£<span itemprop="price">{{selectedProduct.price}}</span></div>
                 <div class="product-view__item-sizes">
                   <div v-for="(size, sizeIndex) in product.variants" :key="size.id" :class="{'product-view__item-sizes-item': true, 'product-view__item-sizes-item--selected': selectedProduct && size.id == selectedProduct.id, 'product-view__item-sizes-item--disabled': !size.available}"><button @click="selectSize(sizeIndex)">{{size.title}}</button></div>
@@ -22,13 +27,12 @@
                 <div class="product-view__item-add"><button @click="addToBag" :class="{'btn btn--primary': true, 'btn--disabled': selectedProduct == null }">Add +</button></div>
               </div>
             </div>
+          </div>
+        </div>
 
-            <Loading key="'loading'" v-else />
-          </transition-group>
-
-				</div>
-			</div>
-		</div>
+        <Loading key="'loading'" v-else />
+      </transition-group>
+    </div>
   </div>
 </template>
 
@@ -93,6 +97,15 @@
   padding-top: 50px;
   padding-bottom: 50px;
 
+  @media (max-width: $breakpoint-lg){
+    .col-sm-12:first-child{
+      order: 2;
+    }
+    .col-sm-12:last-child{
+      order: 1;
+    }
+  }
+
 	&__item{
 		overflow: hidden;
 		max-width: 1400px;
@@ -100,29 +113,12 @@
 	}
 
 	&__item-image{
-		max-width: 600px;
 		position: relative;
 		text-align: center;
-    float: left;
     overflow: hidden;
     border: 5px solid #000;
 
-		&::before{
-			content: '';
-			width: 540px;
-			height: 540px;
-			border-radius: 100%;
-			position: absolute;
-			background: $primary-color;
-			z-index: 0;
-			left: 50%;
-			top: 20px;
-			transform: translateX(-50%);
-			top: 20px;
-		}
-
 		img{
-      max-width: 600px;
       width: 100%;
       height: 400px;
       object-fit: cover;
@@ -156,11 +152,8 @@
 	}
 
 	&__item-details{
-		width: calc(100% - 700px);
-		float: right;
 		overflow: hidden;
 		position: relative;
-    margin-right: 30px;
     padding: 35px 50px;
     background: #fff;
 	}
@@ -172,8 +165,6 @@
 	}
 
 	&__item-sizes{
-		float: left;
-		width: calc(100% - 120px);
 		margin: 35px 0;
 		overflow: hidden;
 	}
