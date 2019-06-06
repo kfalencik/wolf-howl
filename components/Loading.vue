@@ -16,5 +16,9 @@
       display: flex;
       align-items: center;
       justify-content: center;
+
+      @media (max-width: $breakpoint-md){
+        top: 130px;
+      }
     }
 </style>

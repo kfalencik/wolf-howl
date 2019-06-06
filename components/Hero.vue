@@ -22,7 +22,7 @@
         min-height: 568px;
 
         @media (max-width: $breakpoint-md){
-          height: calc(100vh - 160px);
+          height: calc(100vh - 130px);
 
         }
 

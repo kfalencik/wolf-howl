@@ -108,11 +108,11 @@
     @media (max-width: $breakpoint-md){
       justify-content: center;
       flex-direction: column;
+      height: 65px;
     }
 
     img{
       vertical-align: middle;
-      margin-right: 10px;
     }
   }
 
@@ -137,6 +137,11 @@
 
           @media (max-width: $breakpoint-sm){
             padding: 0 20px;
+          }
+
+          @media (max-width: $breakpoint-md){
+            height: 65px;
+            line-height: 65px;
           }
 
 					&:hover{

@@ -28,7 +28,7 @@ export default{
     padding-bottom: 50px;
 
     @media (max-width: $breakpoint-md){
-      padding-top: 160px;
+      padding-top: 130px;
     }
 
     @media (max-height: 567px){
