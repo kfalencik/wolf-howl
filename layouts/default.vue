@@ -25,5 +25,6 @@ export default{
   .page-wrapper{
     min-height: calc(100vh - 275px);
     padding-top: 80px;
+    padding-bottom: 50px;
   }
 </style>

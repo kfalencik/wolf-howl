@@ -78,10 +78,18 @@ export default {
     }
 
     &__products-item{
-      border-bottom: 2px solid $tertiary-color;
+      border-bottom: 2px solid #000;
+      background: #fff;
+      color: #000;
+
+      &:nth-child(odd){
+        background: #000;
+        color: #fff;
+        border-color: #fff;
+      }
 
       td{
-        padding: 15px 0;
+        padding: 15px 15px;
       }
     }
 

@@ -100,12 +100,12 @@
 	}
 
 	&__item-image{
-		width: calc(100% - 580px);
-		max-width: 680px;
+		max-width: 600px;
 		position: relative;
 		text-align: center;
     float: left;
     overflow: hidden;
+    border: 5px solid #000;
 
 		&::before{
 			content: '';
@@ -122,7 +122,7 @@
 		}
 
 		img{
-      max-width: 680px;
+      max-width: 600px;
       width: 100%;
       height: 400px;
       object-fit: cover;
@@ -130,6 +130,11 @@
 			margin: 0 auto;
       display: block;
       transition: all .5s ease-in-out;
+
+      &:first-child{
+        z-index: 5;
+        border-bottom: 5px solid #000;
+      }
 
       &:hover{
         transform: scale(1.5);
@@ -151,12 +156,13 @@
 	}
 
 	&__item-details{
-		width: 500px;
+		width: calc(100% - 700px);
 		float: right;
 		overflow: hidden;
-		margin-top: 5%;
 		position: relative;
-		margin-right: 80px;
+    margin-right: 30px;
+    padding: 35px 50px;
+    background: #fff;
 	}
 
 	&__item-price{
