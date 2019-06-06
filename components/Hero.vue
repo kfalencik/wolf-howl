@@ -78,8 +78,8 @@
               top: -140px;
 
               @media (max-width: $breakpoint-md){
-                height: 100px;
-                top: -40px;
+                height: 140px;
+                top: -80px;
               }
             }
 
