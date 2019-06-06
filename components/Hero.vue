@@ -1,6 +1,8 @@
 <template>
     <div class="hero">
-        <video src="~/assets/video/shop.mp4" autoplay playsinline loop muted />
+        <video autoplay playsinline loop muted>
+          <source src="~/assets/video/shop.mp4" type="video/mp4" />
+        </video>
         <img src="https://images.pexels.com/photos/2351800/pexels-photo-2351800.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" />
 
         <div class="hero__title">
