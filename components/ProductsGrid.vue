@@ -60,7 +60,6 @@ import Loading from '~/components/Loading.vue';
 <style lang="scss" scoped>
   .products-grid{
     padding-top: 25px;
-    padding-bottom: 50px;
 
     &__item{
       cursor: pointer;

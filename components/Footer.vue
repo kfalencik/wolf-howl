@@ -64,7 +64,7 @@
 
       setTimeout(function(){
         self.footer = false;
-      }, 2000);
+      }, 1000);
     },
     methods: {
       toggleFooter: function(){

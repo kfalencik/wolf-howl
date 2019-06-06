@@ -23,7 +23,7 @@ export default{
     background: linear-gradient($secondary-color 0%,  #fff 40%,  #fff 100%);
   }
   .page-wrapper{
-    min-height: calc(100vh - 275px);
+    min-height: 100vh;
     padding-top: 80px;
     padding-bottom: 50px;
   }
