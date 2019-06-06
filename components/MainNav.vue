@@ -15,7 +15,7 @@
               <li><nuxt-link to="/new">New</nuxt-link></li>
               <li><nuxt-link to="/men">Men</nuxt-link></li>
               <li><nuxt-link to="/women">Women</nuxt-link></li>
-              <li><a @click.prevent.stop="showBag()"><i class="fas fa-shopping-bag"></i> {{bag.length}}</a></li>
+              <li><a @click.prevent.stop="showBag()"><i class="fas fa-shopping-bag"></i> {{bagCount}}</a></li>
             </ul>
           </nav>
         </div>
@@ -39,9 +39,15 @@
     components: {
       Bag
     },
+    mounted: function() {
+      this.$store.dispatch('getBag');
+    },
     computed: {
       bag () {
         return this.$store.state.bag
+      },
+      bagCount () {
+        return this.$store.state.bagCount
       },
       bagToggle () {
         return this.$store.state.bagToggle
@@ -64,6 +70,7 @@
   top: 0;
   z-index: 30;
   width: 100%;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
 
   $root: &;
 

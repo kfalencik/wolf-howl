@@ -8,6 +8,7 @@
             <div :key="'product'" v-if="product" class="product-view__item" itemscope itemtype="http://schema.org/Product">
               <div class="product-view__item-image">
                 <img item-prop="image" :src="product.images[0].src" :alt="product.title">
+                <img item-prop="image" :src="product.images[1].src" :alt="product.title">
               </div>
 
               <div class="product-view__item-details">
@@ -18,7 +19,7 @@
                 <div class="product-view__item-sizes">
                   <div v-for="(size, sizeIndex) in product.variants" :key="size.id" :class="{'product-view__item-sizes-item': true, 'product-view__item-sizes-item--selected': selectedProduct && size.id == selectedProduct.id, 'product-view__item-sizes-item--disabled': !size.available}"><button @click="selectSize(sizeIndex)">{{size.title}}</button></div>
                 </div>
-                <div class="product-view__item-add"><button :class="{'btn btn--primary': true, 'btn--disabled': selectedProduct == null }">Add +</button></div>
+                <div class="product-view__item-add"><button @click="addToBag" :class="{'btn btn--primary': true, 'btn--disabled': selectedProduct == null }">Add +</button></div>
               </div>
             </div>
 
@@ -68,7 +69,13 @@
     },
     methods: {
       selectSize(size){
-        this.selectedProduct = this.product.variants[size];
+        if (this.product.variants[size].available) {
+          console.log(this.product.variants[size]);
+          this.selectedProduct = this.product.variants[size];
+        }
+      },
+      addToBag(){
+        this.$store.commit('addToBag', [this.product.id, this.selectedProduct.id, 1, this.selectedProduct.title, this.product.title, this.selectedProduct.price]);
       }
     },
     head () {
@@ -97,7 +104,8 @@
 		max-width: 680px;
 		position: relative;
 		text-align: center;
-		float: left;
+    float: left;
+    overflow: hidden;
 
 		&::before{
 			content: '';
@@ -114,10 +122,18 @@
 		}
 
 		img{
-			max-width: 680px;
+      max-width: 680px;
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
 			position: relative;
 			margin: 0 auto;
-			display: block;
+      display: block;
+      transition: all .5s ease-in-out;
+
+      &:hover{
+        transform: scale(1.5);
+      }
 		}
 
 		&::after{
