@@ -106,12 +106,6 @@
     }
   }
 
-	&__item{
-		overflow: hidden;
-		max-width: 1400px;
-		margin: 0 auto;
-	}
-
 	&__item-image{
 		position: relative;
 		text-align: center;

@@ -94,12 +94,16 @@
     .wolf-howl-tag{
       position: absolute;
       top: -120px;
-      right: 50px;
+      right: 80px;
       background: #000;
       width: 80px;
       text-align: center;
       height: 120px;
       cursor: pointer;
+
+      @media (max-width: $breakpoint-xl){
+        right: 40px;
+      }
 
       @media (max-width: $breakpoint-md){
         position: relative;
@@ -110,6 +114,7 @@
         cursor: initial;
         padding-bottom: 20px;
       }
+
 
       img{
         width: 50px;
