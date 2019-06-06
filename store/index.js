@@ -24,8 +24,8 @@ export const mutations = {
 
     if (productFound === false) {
       state.bag.push({
-        id: data[0],
-        variant: data[1],
+        variant: data[0],
+        id: data[1],
         quantity: data[2],
         size: data[3],
         title: data[4],
@@ -33,6 +33,7 @@ export const mutations = {
       });
     }
     state.bagCount++;
+    state.bagToggle = true;
 
     // Store bag in session
     sessionStorage.setItem('bag', JSON.stringify(state.bag));

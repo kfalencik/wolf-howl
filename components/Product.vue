@@ -79,7 +79,7 @@
         }
       },
       addToBag(){
-        this.$store.commit('addToBag', [this.product.id, this.selectedProduct.id, 1, this.selectedProduct.title, this.product.title, this.selectedProduct.price]);
+        this.$store.commit('addToBag', [this.selectedProduct.id, this.product.id, 1, this.selectedProduct.title, this.product.title, this.selectedProduct.price]);
       }
     },
     head () {

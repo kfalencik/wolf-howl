@@ -5,7 +5,7 @@
       <table class="bag__products">
         <tbody>
           <tr class="bag__products-item" :key="product.id" v-for="(product, index) in bag">
-            <td>{{ product.title }}</td> <td>{{ product.size }}</td> <td> £{{ product.price }} x {{product.quantity}}</td> <td>£{{ productTotal(product.quantity, product.price) }}</td>
+            <td><i class="fas fa-tshirt"></i></td><td>{{ product.title }}</td> <td>{{ product.size }}</td> <td> £{{ product.price }} x {{product.quantity}}</td> <td>£{{ productTotal(product.quantity, product.price) }}</td>
           </tr>
         </tbody>
       </table>
@@ -26,16 +26,6 @@ export default {
   data() {
     return {
     }
-  },
-  mounted: function(){
-    const self = this;
-    document.querySelector('body').addEventListener('click', function(){
-      self.$store.commit('setValue', ['bagToggle', false]);
-    });
-
-    document.querySelector('.bag').addEventListener('click', function(e){
-      e.stopPropagation();
-    });
   },
   computed: {
     bag () {

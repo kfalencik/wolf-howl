@@ -7,7 +7,7 @@
             <table class="checkout__products">
               <tbody>
                 <tr class="checkout__products-item" :key="product.id" v-for="(product, index) in bag">
-                  <td>{{ product.title }}</td> <td>{{ product.size }}</td> <td> £{{ product.price }} x {{product.quantity}}</td> <td>£{{ productTotal(product.quantity, product.price) }}</td>
+                  <td><i class="fas fa-tshirt"></i></td><td>{{ product.title }}</td> <td>{{ product.size }}</td> <td> £{{ product.price }} x {{product.quantity}}</td> <td>£{{ productTotal(product.quantity, product.price) }}</td>
                 </tr>
               </tbody>
             </table>
