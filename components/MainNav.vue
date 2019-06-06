@@ -1,29 +1,29 @@
 <template>
   <div class="page-top">
-  <header class="nav">
-    <div class="container">
-      <div class="row nav">
-        <div class="nav__logo col-md-6">
-          <nuxt-link to="/">
-            <!-- <img height="50" src="~/assets/img/logo.png" alt="Logo" /> -->
-            Wolf howl
-          </nuxt-link>
-        </div>
-        <div class="nav__menu col-md-6">
-          <nav class="nav__menu-main">
-            <ul>
-              <li><nuxt-link to="/new">New</nuxt-link></li>
-              <li><nuxt-link to="/men">Men</nuxt-link></li>
-              <li><nuxt-link to="/women">Women</nuxt-link></li>
-              <li><a @click.prevent.stop="showBag()"><i class="fas fa-shopping-bag"></i> {{bagCount}}</a></li>
-            </ul>
-          </nav>
+    <header class="nav">
+      <div class="container">
+        <div class="row">
+          <div class="nav__logo col-sm-12 col-md-4 col-lg-6">
+            <nuxt-link to="/">
+              <!-- <img height="50" src="~/assets/img/logo.png" alt="Logo" /> -->
+              Wolf howl
+            </nuxt-link>
+          </div>
+          <div class="nav__menu col-sm-12 col-md-8 col-lg-6">
+            <nav class="nav__menu-main">
+              <ul>
+                <li><nuxt-link to="/new">New</nuxt-link></li>
+                <li><nuxt-link to="/men">Men</nuxt-link></li>
+                <li><nuxt-link to="/women">Women</nuxt-link></li>
+                <li><a @click.prevent.stop="showBag()"><i class="fas fa-shopping-bag"></i> {{bagCount}}</a></li>
+              </ul>
+            </nav>
+          </div>
         </div>
       </div>
-    </div>
-  </header>
+    </header>
 
-  <Bag />
+    <Bag />
   </div>
 </template>
 
@@ -68,6 +68,7 @@
   overflow: hidden;
   background: #fff;
   top: 0;
+  left: 0;
   z-index: 30;
   width: 100%;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
@@ -100,6 +101,11 @@
     display: flex;
     align-items: center;
 
+    @media (max-width: $breakpoint-md){
+      justify-content: center;
+      flex-direction: column;
+    }
+
     img{
       vertical-align: middle;
       margin-right: 10px;
@@ -110,6 +116,9 @@
     text-align: right;
 
 		ul{
+      @media (max-width: $breakpoint-md){
+        text-align: center;
+      }
 
 			li{
 				display: inline-block;
@@ -121,6 +130,10 @@
 					padding: 0 35px;
           line-height: 80px;
           font-size: 14px;
+
+          @media (max-width: $breakpoint-sm){
+            padding: 0 20px;
+          }
 
 					&:hover{
 						color: #fff;

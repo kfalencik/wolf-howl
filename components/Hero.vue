@@ -18,6 +18,10 @@
         margin-bottom: 50px;
         position: relative;
 
+        @media (max-width: $breakpoint-md){
+          height: calc(100vh - 160px);
+        }
+
         &::after{
           content: '';
           display: block;
@@ -38,6 +42,7 @@
 
         &__title{
             width: 500px;
+            max-width: 96%;
             height: 250px;
             background: #fff;
             color: #000;
@@ -52,9 +57,18 @@
             transform: translate(-50%, -50%);
             border: 25px solid #000;
 
+            @media (max-width: $breakpoint-md){
+              border: 15px solid #000;
+            }
+
             img{
               position: absolute;
               top: -140px;
+
+              @media (max-width: $breakpoint-md){
+                height: 100px;
+                top: -40px;
+              }
             }
 
             h1{
