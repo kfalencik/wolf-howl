@@ -13,6 +13,14 @@
     </div>
 </template>
 
+<script>
+  export default {
+    mounted() {
+      document.querySelector('video').play();
+    },
+  }
+</script>
+
 <style lang="scss" scoped>
     .hero{
         height: calc(100vh - 80px);

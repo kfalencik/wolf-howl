@@ -150,6 +150,10 @@
 		position: relative;
     padding: 35px 50px;
     background: #fff;
+
+    @media (max-width: $breakpoint-md){
+      padding: 35px 20px;
+    }
 	}
 
 	&__item-price{
@@ -181,8 +185,12 @@
 			transition: all .5s ease;
 			transform: translateX(-50%);
 			opacity: 0;
-			top: 2px;
-		}
+      top: 2px;
+    }
+
+    &:last-child{
+      margin-right: 0;
+    }
 
 		&:hover, &--selected{
 
