@@ -1,5 +1,8 @@
 <template>
-  <footer class="u-bg-black">
+  <footer :class="{'u-bg-black': true, 'active': footer}">
+    <div class="wolf-howl-tag" @click="toggleFooter">
+      <img src="~/assets/img/logo.png" alt="Wolf Howl" />
+    </div>
     <div class="container">
       <div class="row">
         <div class="col-md-4">
@@ -41,9 +44,66 @@
   </footer>
 </template>
 
+<script>
+
+  export default {
+    data: function(){
+      return{
+        footer: true
+      }
+    },
+    mounted: function(){
+      const self = this;
+      document.querySelector('body').addEventListener('click', function(){
+        self.footer = false;
+      });
+
+      document.querySelector('footer').addEventListener('click', function(e){
+        e.stopPropagation();
+      });
+
+      setTimeout(function(){
+        self.footer = false;
+      }, 2000);
+    },
+    methods: {
+      toggleFooter: function(){
+        this.footer = !this.footer;
+      }
+    }
+  }
+</script>
+
 <style <style lang="scss" scoped>
   footer{
     padding: 25px 0;
+    position: fixed;
+    width: 100%;
+    transform: translateY(100%);
+    transition: all .5s ease-in-out;
+    left: 0;
+    bottom: 0;
+    z-index: 55;
+
+    &.active{
+      transform: translateY(0);
+    }
+
+    .wolf-howl-tag{
+      position: absolute;
+      top: -120px;
+      right: 50px;
+      background: #000;
+      width: 80px;
+      text-align: center;
+      height: 120px;
+      cursor: pointer;
+
+      img{
+        width: 50px;
+        margin-top: 15px;
+      }
+    }
 
     h3{
       margin-bottom: 15px;

@@ -8,7 +8,7 @@
   .loading{
       position: fixed;
       background: $secondary-color;
-      z-index: 999;
+      z-index: 50;
       left: 0;
       top: 80px;
       right: 0;
