@@ -84,7 +84,6 @@
     methods: {
       selectSize(size){
         if (this.product.variants[size].available) {
-          console.log(this.product.variants[size]);
           this.selectedProduct = this.product.variants[size];
         }
       },
@@ -177,7 +176,7 @@
     width: 300px;
     max-width: 100%;
     height: 500px;
-    padding-top: 500px;
+    padding-top: 475px;
     position: absolute;
 
     @media (max-width: 360px){
@@ -255,8 +254,9 @@
     .btn{
       background: none;
       color: #000;
-      border: 2px solid #000;
+      border: 4px solid #000;
       max-width: 220px;
+      padding: 10px 40px;
 
       &:hover{
         background: rgba(255,255,255,0.75);
