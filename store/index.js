@@ -16,7 +16,7 @@ export const mutations = {
     let productFound = false;
 
     products.forEach(product => {
-      if(product.id === data[0] && product.variant === data[1]){
+      if(product.id === data[1] && product.variant === data[0]){
         product.quantity++;
         productFound = true;
       }
