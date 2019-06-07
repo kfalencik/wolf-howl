@@ -148,13 +148,13 @@
     background-size: 100%;
     width: 300px;
     max-width: 100%;
-    height: 770px;
+    height: 780px;
     text-align: center;
     position: relative;
     margin: 0 auto;
     transition: all .5s ease-in-out;
     transform-style: preserve-3d;
-    transform: translateY(100px);
+    transform: translateY(-150px);
     animation: slidedown 1s 1;
 
     @media (max-width: 360px){
@@ -162,24 +162,8 @@
       height: 720px;
     }
 
-    &::before{
-      content: '';
-      display: block;
-      width: 300px;
-      height: 237px;
-      top: -237px;
-      position: absolute;
-      background: url(~assets/img/rope.png) no-repeat center top;
-      background-size: 100%;
-
-      @media (max-width: 360px){
-        width: 280px;
-        top: -220px;
-      }
-    }
-
     &--flip{
-      transform: translateY(100px) rotate3d(0, 1, 0, 180deg);
+      transform: translateY(-150px) rotate3d(0, 1, 0, 180deg);
     }
   }
 
@@ -193,11 +177,11 @@
     width: 300px;
     max-width: 100%;
     height: 500px;
-    padding-top: 260px;
+    padding-top: 500px;
     position: absolute;
 
     @media (max-width: 360px){
-      padding-top: 240px;
+      padding-top: 480px;
     }
 
     &--front{
@@ -238,6 +222,7 @@
       font-weight: bold;
       padding: 0;
       transition: all .3s ease-in-out;
+      font-family: $font-body;
     }
 
     &--selected{
@@ -292,16 +277,7 @@
     transform: translateY(-100%);
   }
   100%{
-    transform: translateY(100px);
-  }
-}
-
-@keyframes slidedownMobile {
-  0%{
-    transform: translateY(-100%);
-  }
-  100%{
-    transform: translateY(150px);
+    transform: translateY(-150px);
   }
 }
 </style>
