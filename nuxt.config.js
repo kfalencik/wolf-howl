@@ -1,11 +1,15 @@
-import pkg from './package'
+import pkg from './package';
 
 export default {
   mode: 'universal',
 
   generate: {
     routes: [
-      '/products/panther-hunt'
+      '/products/panther-hunt',
+      '/products/white-gringo',
+      '/products/wolf-howl',
+      '/products/traditional-tattoo',
+      '/products/old-sailor'
     ]
   },
 

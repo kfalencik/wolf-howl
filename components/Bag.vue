@@ -1,10 +1,10 @@
 <template>
   <div :class="{'bag': true, 'active': bagToggle}">
     <div class="bag__wrapper">
-      <h3 class="h2">Your bag</h3>
+      <h3 class="h2">Your bag <span @click="closeBag" class="bag__close u-float-right"><i class="fa fa-times"></i></span></h3>
       <table class="bag__products">
         <tbody>
-          <tr class="bag__products-item" :key="product.id" v-for="(product, index) in bag">
+          <tr class="bag__products-item" :key="'bag-item-' + index" v-for="(product, index) in bag">
             <td><i class="fas fa-tshirt"></i></td><td>{{ product.title }}</td> <td>{{ product.size }}</td> <td> £{{ product.price }} x {{product.quantity}}</td> <td>£{{ productTotal(product.quantity, product.price) }}</td>
           </tr>
         </tbody>
@@ -46,6 +46,9 @@ export default {
     }
   },
   methods: {
+    closeBag: function(){
+      this.$store.commit('setValue', ['bagToggle', false]);
+    },
     productTotal: function(quantity, price){
       return quantity * price;
     }
@@ -68,6 +71,10 @@ export default {
     transform: translateX(100%);
     transition: all .5s ease-in;
 
+    @media (max-width: $breakpoint-md){
+      padding: 25px;
+    }
+
     &::before{
       content: '';
       display: block;
@@ -82,6 +89,10 @@ export default {
 
     &.active{
       transform: translateX(0);
+    }
+
+    &__close{
+      cursor: pointer;
     }
 
     &__wrapper{

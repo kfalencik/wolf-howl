@@ -16,7 +16,18 @@
             </div>
 
             <div class="col-sm-12 col-lg-6">
-              <div class="product-view__item-details">
+              <div class="product-view__item-tag">
+                <div class="product-view__item-tag-details">
+                  <h2 itemprop="name" class="h2">{{product.title}}</h2>
+                  <div class="product-view__item-tag-sizes">
+                    <div v-for="(size, sizeIndex) in product.variants" :key="size.id" :class="{'product-view__item-tag-sizes-item': true, 'product-view__item-tag-sizes-item--selected': selectedProduct && size.id == selectedProduct.id, 'product-view__item-tag-sizes-item--disabled': !size.available}"><button @click="selectSize(sizeIndex)">{{convertSize(size.title)}}</button></div>
+                  </div>
+                  <div class="product-view__item-tag-price">£<span itemprop="price">{{selectedProduct.price}}</span></div>
+                  <div class="product-view__item-tag-add"><button @click="addToBag" :class="{'btn btn--primary': true, 'btn--disabled': selectedProduct == null }">Add to bag</button></div>
+                </div>
+              </div>
+
+              <!-- <div class="product-view__item-details">
                 <h2 itemprop="name" class="h2">{{product.title}}</h2>
                 <div itemprop="description" class="product-view__item-description">{{product.description}}</div>
                 <meta itemprop="priceCurrency" content="GBP" />
@@ -25,7 +36,7 @@
                   <div v-for="(size, sizeIndex) in product.variants" :key="size.id" :class="{'product-view__item-sizes-item': true, 'product-view__item-sizes-item--selected': selectedProduct && size.id == selectedProduct.id, 'product-view__item-sizes-item--disabled': !size.available}"><button @click="selectSize(sizeIndex)">{{size.title}}</button></div>
                 </div>
                 <div class="product-view__item-add"><button @click="addToBag" :class="{'btn btn--primary': true, 'btn--disabled': selectedProduct == null }">Add +</button></div>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
@@ -80,6 +91,22 @@
       },
       addToBag(){
         this.$store.commit('addToBag', [this.selectedProduct.id, this.product.id, 1, this.selectedProduct.title, this.product.title, this.selectedProduct.price]);
+      },
+      convertSize: function(size){
+        switch(size){
+          case 'Extra Small':
+            return 'XS';
+          case 'Small':
+            return 'S';
+          case 'Medium':
+            return 'M';
+          case 'Large':
+            return 'L';
+          case 'Extra Large':
+            return 'XL';
+          case 'Extra Extra Large':
+            return 'XXL';
+        }
       }
     },
     head () {
@@ -232,5 +259,104 @@
 	&__item-description{
 		clear: both;
 	}
+
+  &__item-tag{
+    background: url(~assets/img/tag.png) no-repeat;
+    background-size: 100%;
+    width: 300px;
+    max-width: 100%;
+    height: 770px;
+    text-align: center;
+    margin: 0 auto;
+    transform: translateY(100%);
+    animation: slidedown 1s 1 forwards;
+
+    @media (max-width: $breakpoint-md){
+      animation: slidedownMobile 1s 1 forwards;
+    }
+  }
+
+  &__item-tag-details{
+    width: 300px;
+    max-width: 100%;
+    height: 500px;
+    padding-top: 500px;
+
+    h2{
+      margin-bottom: 0;
+    }
+  }
+
+  &__item-tag-sizes{
+    overflow: hidden;
+    border: 1px solid #000;
+    width: 122px;
+    margin: 0 auto 20px;
+  }
+
+  &__item-tag-sizes-item{
+    float: left;
+
+    button{
+      background: none;
+      border: 2px solid #000;
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+      font-weight: bold;
+      padding: 0;
+    }
+
+    &--selected{
+      button{
+        background: rgba(255,255,255,0.75);
+      }
+    }
+
+    &--disabled{
+      position: relative;
+
+      &::after{
+        content: '/';
+        font-size: 35px;
+        position: absolute;
+        top: -15px;
+        left: 10px;
+      }
+    }
+  }
+
+  &__item-tag-price{
+    font-size: 25px;
+  }
+
+  &__item-tag-add{
+    margin-top: 15px;
+
+    .btn{
+      background: none;
+      color: #000;
+      border: 2px solid #000;
+      max-width: 220px;
+    }
+  }
+}
+
+@keyframes slidedown {
+  0%{
+    transform: translateY(-100%);
+  }
+  100%{
+    transform: translateY(-100px);
+  }
+}
+
+@keyframes slidedownMobile {
+  0%{
+    transform: translateY(-100%);
+  }
+  100%{
+    transform: translateY(-150px);
+  }
 }
 </style>
