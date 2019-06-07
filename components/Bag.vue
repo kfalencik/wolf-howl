@@ -70,21 +70,10 @@ export default {
     z-index: 200;
     transform: translateX(100%);
     transition: all .5s ease-in;
+    overflow: auto;
 
     @media (max-width: $breakpoint-md){
       padding: 25px;
-    }
-
-    &::before{
-      content: '';
-      display: block;
-      position: fixed;
-      z-index: 200;
-      background: rgba(0,0,0,0.5);
-      width: 100%;
-      height: 100vh;
-      top: 0;
-      left: 0;
     }
 
     &.active{

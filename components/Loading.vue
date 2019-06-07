@@ -10,6 +10,7 @@
       background: $secondary-color;
       z-index: 50;
       left: 0;
+      width: 100%;
       top: 80px;
       right: 0;
       bottom: 0;
