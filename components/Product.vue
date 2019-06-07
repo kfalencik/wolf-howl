@@ -190,14 +190,12 @@
     }
 
     &--back{
-      transform: rotateY(180deg);
+      transform: rotateY(180deg) translateZ(1px);
       backface-visibility: hidden;
     }
 
     h2{
       margin-bottom: 0;
-      transition: all 1.7s ease-in-out;
-      backface-visibility: visible;
     }
   }
 
