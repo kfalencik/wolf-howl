@@ -32,9 +32,7 @@
 
   export default {
     data: function(){
-      return{
-
-      }
+      return{}
     },
     components: {
       Bag

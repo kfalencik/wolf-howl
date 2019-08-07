@@ -23,10 +23,6 @@
 
 <script>
 export default {
-  data() {
-    return {
-    }
-  },
   computed: {
     bag () {
       return this.$store.state.bag

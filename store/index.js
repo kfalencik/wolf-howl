@@ -55,13 +55,19 @@ export const mutations = {
 }
 
 export const actions = {
-  async getProducts ({ commit }) {
-    const products = await this.$shopify.product.fetchAll();
-    commit('setValue', ['products', products]);
+  getProducts ({ commit }) {
+    return new Promise((resolve, reject) => {
+      const products = this.$shopify.product.fetchAll();
+      commit('setValue', ['products', products]);
+      resolve();
+    });
   },
-  async getCollections ({ commit }) {
-    const collections = await this.$shopify.collection.fetchAllWithProducts().then((collections) => {
-      commit('setValue', ['collections', collections]);
+  getCollections ({ commit }) {
+    return new Promise((resolve, reject) => {
+      const collections = this.$shopify.collection.fetchAllWithProducts().then((collections) => {
+        commit('setValue', ['collections', collections]);
+      });
+      resolve();
     });
   },
   async getBag ({ commit }) {

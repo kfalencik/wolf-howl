@@ -1,21 +1,26 @@
 <template>
   <div class="page-wrapper">
-    <Hero />
+    <MarbleHero />
     <PageTitle title="New Arrivals" />
-    <ProductsGrid collection="new" />
+    <ProductsGrid collection="new" limit="6" />
+    <div class="u-text-center">
+      <nuxt-link to="/new" class="btn btn--secondary">See all new arrivals</nuxt-link>
+    </div>
   </div>
 </template>
 
 <script>
 import ProductsGrid from '~/components/ProductsGrid.vue';
 import Hero from '~/components/Hero.vue';
+import MarbleHero from '~/components/MarbleHero.vue';
 import PageTitle from '~/components/PageTitle.vue';
 
 export default {
   components: {
     ProductsGrid,
     Hero,
-    PageTitle
+    PageTitle,
+    MarbleHero
   },
   mounted: function(){
     this.$store.dispatch('getProducts');
