@@ -69,17 +69,18 @@
         return this.$store.state.products;
       }
     },
-    watch: {
-      products: function(){
-        const self = this;
+    mounted: function(){
+      const self = this;
 
-        self.products.forEach(function(product) {
+      this.$store.dispatch('getProducts').then(function(){
+        const products = self.$store.state.products;
+        products.forEach(function(product) {
           if(product.handle == self.productid) {
             self.product = product;
             self.selectedProduct = product.variants[0];
           }
         });
-      }
+      });
     },
     methods: {
       selectSize(size){

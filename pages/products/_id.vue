@@ -18,7 +18,6 @@ export default {
   },
   mounted: function(){
     this.$store.dispatch('getProducts');
-    console.log(this.id);
   }
 }
 </script>

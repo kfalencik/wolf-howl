@@ -36,8 +36,6 @@ export const mutations = {
       this.$shopify.checkout.addLineItems(state.checkoutId, {
         variantId: data[0],
         quantity: data[2]
-      }).then(checkout => {
-        console.log(checkout);
       });
     }
     state.bagCount++;
@@ -55,24 +53,23 @@ export const mutations = {
 }
 
 export const actions = {
-  getProducts ({ commit }) {
-    return new Promise((resolve, reject) => {
-      const products = this.$shopify.product.fetchAll();
+  async getProducts ({ commit }) {
+    return new Promise( async (resolve, reject) => {
+      const products = await this.$shopify.product.fetchAll();
       commit('setValue', ['products', products]);
       resolve();
     });
   },
-  getCollections ({ commit }) {
-    return new Promise((resolve, reject) => {
-      const collections = this.$shopify.collection.fetchAllWithProducts().then((collections) => {
+  async getCollections ({ commit }) {
+    return new Promise( async (resolve, reject) => {
+      const collections = await this.$shopify.collection.fetchAllWithProducts().then((collections) => {
         commit('setValue', ['collections', collections]);
+        resolve();
       });
-      resolve();
     });
   },
   async getBag ({ commit }) {
     if(sessionStorage.getItem('bag')){
-      console.log(sessionStorage.getItem('checkoutId'));
       this.$shopify.checkout.create().then(checkout => {
         commit('setValue', ['checkoutId', checkout.id]);
         commit('sessionBag', [JSON.parse(sessionStorage.getItem('bag')), sessionStorage.getItem('bagCount')]);
