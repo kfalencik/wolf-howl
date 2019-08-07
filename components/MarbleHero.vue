@@ -175,13 +175,31 @@ export default {
   min-height: 568px;
   background: #000;
 
+  &::after {
+    box-shadow: inset 0 0 70px #000000;
+    content: '';
+    display: block;
+    position: absolute;
+    z-index: 9;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  }
+
   @media (max-width: $breakpoint-md){
     height: calc(100vh - 130px);
+
+    &::after {
+      box-shadow: inset 0 0 150px #000000;
+    }
   }
+
+
 
   &__title{
     width: 500px;
-    max-width: 96%;
+    max-width: 90%;
     height: 250px;
     background: #fff;
     color: #000;
@@ -194,11 +212,6 @@ export default {
     left: 50%;
     z-index: 10;
     transform: translate(-50%, -50%);
-    border: 25px solid #000;
-
-    @media (max-width: $breakpoint-md){
-      border: 15px solid #000;
-    }
 
     img{
       position: absolute;
@@ -227,7 +240,7 @@ export default {
   width: 100%;
   height: 100%;
   overflow:hidden;
-  margin: -50px;
+  margin: 0;
   padding: 0px;
   background-color: black;
   filter:blur(5px) url(#svgFilter);
